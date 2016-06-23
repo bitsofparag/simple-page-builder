@@ -1,11 +1,16 @@
 {
   "name": "simple-page-builder",
   "version": "0.0.1",
-  "description": "Simple page builder",
-  "main": "index.js",
+  "description": "Simple Page Builder Demo",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Parag M",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.21.0",
+    "webpack": "^1.13.1",
+    "webpack-merge": "^0.14.0",
+    "webpack-validator": "^2.2.0"
+  }
 }
