@@ -50,10 +50,12 @@ const common = {
 // branching out config
 let config;
 switch(TARGET) {
-  case 'build':
-    config = merge(common, {});
+  case 'deploy':
+    config = merge(common, {
+
+    });
     break;
-  default:
+  default: // `develop`
     config = merge(common, devServer({
       host: process.env.HOST,
       port: process.env.PORT
