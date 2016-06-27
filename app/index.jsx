@@ -7,15 +7,22 @@ import getStyles from './appStyles';
 
 const styles = getStyles();
 
-const App = React.createClass({
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (<div style={styles.block}>
+      <div style={styles.__header}>
+        Product Builder
+      </div>
       <div style={styles.__leftSidebar}>
         <Toolbar />
       </div>
       <div style={styles.__mainContent}></div>
     </div>);
   }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
