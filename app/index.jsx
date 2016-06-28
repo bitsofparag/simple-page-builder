@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Toolbar from './toolbar';
+// component views
+import Header from './components/header';
+import Toolbar from './components/toolbar';
 
+// style libs
 import getStyles from './appStyles';
+import theme from './theme';
 
-const styles = getStyles();
+const styles = getStyles(theme);
 
 class App extends React.Component {
   constructor(props) {
@@ -14,9 +18,7 @@ class App extends React.Component {
 
   render() {
     return (<div style={styles.block}>
-      <div style={styles.__header}>
-        Product Builder
-      </div>
+      <Header theme={theme} />
       <div style={styles.__leftSidebar}>
         <Toolbar />
       </div>
