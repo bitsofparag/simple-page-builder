@@ -4,7 +4,7 @@
 
 import actionTypes from '../actions/actionTypes';
 
-export const elements = (state = [], action) => {
+const elements = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_ELEMENT:
       let newElement = Object.assign({}, action.element, {
@@ -20,3 +20,5 @@ export const elements = (state = [], action) => {
       return state;
   }
 };
+
+export default elements;

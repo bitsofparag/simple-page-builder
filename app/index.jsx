@@ -1,5 +1,10 @@
+// app libs
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// app stores
+import {createStore} from 'redux';
+import rootReducer from './stores';
 
 // component views
 import Header from './components/header';
@@ -12,8 +17,11 @@ import ExportButton from './components/export-button';
 import getStyles from './appStyles';
 import theme from './theme';
 
+
+const productBuilderStore = createStore(rootReducer);
 const styles = getStyles(theme);
 
+console.log(productBuilderStore.getState());
 class App extends React.Component {
   constructor(props) {
     super(props);
