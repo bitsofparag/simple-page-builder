@@ -20,7 +20,7 @@ class App extends React.Component {
     return (<div style={styles.block}>
       <Header theme={theme} />
       <div style={styles.__leftSidebar}>
-        <Toolbar />
+        <Toolbar theme={theme} />
       </div>
       <div style={styles.__mainContent}></div>
     </div>);

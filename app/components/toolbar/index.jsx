@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Element from '../element';
+
 import getStyles from './styles.js';
 
 const styles = getStyles();
@@ -13,7 +15,7 @@ export default class Toolbar extends React.Component {
 
   render() {
     return (<div style={styles.block}>
-      Toolbar
+      <Element theme={this.props.theme} />
     </div>);
   }
 }

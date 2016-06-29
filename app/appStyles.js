@@ -11,8 +11,7 @@ export default function getStyles(theme) {
     },
 
     __leftSidebar: {
-      width: (theme.FULL_WIDTH - theme.CONTENT_WIDTH) + '%',
-      borderRight: '0.5px solid'
+      width: (theme.FULL_WIDTH - theme.CONTENT_WIDTH) + '%'
     },
 
     __mainContent: {
