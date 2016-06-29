@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // app stores
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import store from './stores';
+import storeReducers from './stores';
 
 // app actions
 import {addPage} from './actions';
@@ -22,7 +22,7 @@ import getStyles from './appStyles';
 import theme from './theme';
 
 // initialize the product builder data store
-const storeWrapper = createStore(store);
+const store = createStore(storeReducers);
 
 // initialize the app styles
 const styles = getStyles(theme);
@@ -50,15 +50,15 @@ class App extends React.Component {
 
 // render the root product builder component in the DOM
 ReactDOM.render(
-  <Provider store={storeWrapper}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('app')
 );
 
 // dispatch action to create a new page in the store (which is the currently displayed page)
-storeWrapper.dispatch(addPage());
+store.dispatch(addPage());
 
- setInterval(function() {
-  console.log(storeWrapper.getState());
- }, 2000);
+ //setInterval(function() {
+ // console.log(store.getState());
+ //}, 2000);
