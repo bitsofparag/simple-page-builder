@@ -38,15 +38,16 @@
     a. combine Page and Element reducers using `combineReducers`
     
 - 010 Create Toolbar Container
+    a. onClick method that dispatches ADD_ELEMENT action
+    
+- 011 Create Element function that returns a json structure of element type
     a. create input, textarea elements
     b. create radio button element
     c. create file input element
     d. create paragraph element
-    e. onClick method that dispatches ADD_ELEMENT action
-    
-- 011 Create Page Container
+
+- 012 Create HTMLElement component that renders on Page canvas
+
+- 013 Create Page Container
     a. newPage method that dispatches ADD_PAGE action
-    
-- 012 Implement simple drag n drop
-    a. install DnD library
-    b. simple DnD from Toolbar to Canvas
+

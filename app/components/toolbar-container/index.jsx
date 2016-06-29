@@ -1,6 +1,9 @@
 import React from 'react';
 
 import ToolbarButton from '../toolbar-button';
+import Element from '../element';
+
+import {addElement} from '../../actions';
 
 import getStyles from './styles.js';
 
