@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const SavePageButton = ({theme}) => {
+const NewPageButton = ({theme}) => {
   const styles = getStyles(theme);
 
   return (<a style={styles.block}>
@@ -10,8 +10,8 @@ const SavePageButton = ({theme}) => {
   </a>);
 };
 
-SavePageButton.propTypes = {
+NewPageButton.propTypes = {
   theme: PropTypes.object
 };
 
-export default SavePageButton;
+export default NewPageButton;

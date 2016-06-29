@@ -1,3 +1,10 @@
+/**
+ * Styles for new page button in the toolbar
+ *
+ * @param theme
+ * @returns {Object}
+ */
+
 export default function getStyles(theme) {
   return {
     block: {
@@ -7,8 +14,9 @@ export default function getStyles(theme) {
       fontWeight: 500,
       textAlign: 'center',
       fontSize: 16,
+      display: 'block',
       color: theme.PALETTE.primary,
-      border: 0
+      borderBottom: '1px solid ' + theme.PALETTE.border
     },
 
     __hover: {
