@@ -6,6 +6,7 @@ import Header from './components/header';
 import Toolbar from './components/toolbar';
 import Canvas from './components/canvas'
 import SavePageButton from './components/save-page-button'
+import ExportButton from './components/export-button';
 
 // style libs
 import getStyles from './appStyles';
@@ -22,10 +23,11 @@ class App extends React.Component {
     return (<div style={styles.block}>
       <Header theme={theme} />
       <div style={styles.__leftSidebar}>
+        <SavePageButton theme={theme} />
         <Toolbar theme={theme} />
       </div>
       <div style={styles.__mainContent}>
-        <SavePageButton theme={theme} />
+        <ExportButton theme={theme} />
         <Canvas theme={theme} />
       </div>
     </div>);

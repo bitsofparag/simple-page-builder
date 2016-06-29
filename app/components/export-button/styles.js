@@ -1,13 +1,20 @@
+/**
+ * Styles for export as YAML file button
+ *
+ * @param theme
+ * @returns {Object}
+ */
+
 export default function getStyles(theme) {
   return {
     block: {
-      width: '100%',
-      height: theme.GRID.unit * 4,
+      width: 'auto',
       marginBottom: theme.GRID.unit * 2,
-      fontWeight: 500,
-      textAlign: 'center',
-      fontSize: 16,
+      fontWeight: 300,
+      fontSize: 14,
+      padding: theme.GRID.unit,
       color: theme.PALETTE.primary,
+      backgroundColor: theme.PALETTE.accent,
       border: 0
     },
 

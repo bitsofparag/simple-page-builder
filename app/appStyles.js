@@ -17,7 +17,8 @@ export default function getStyles(theme) {
     __leftSidebar: {
       width: '25%',
       boxSizing: 'border-box',
-      padding: theme.GRID.unit
+      padding: theme.GRID.unit,
+      paddingTop: theme.GRID.unit * 7
     },
 
     __mainContent: {
