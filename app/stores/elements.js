@@ -4,7 +4,7 @@
 
 import actionTypes from '../actions/actionTypes';
 
-const elements = (state = [], action) => {
+export const elements = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_ELEMENT:
       let newElement = Object.assign({}, action.element, {

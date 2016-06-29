@@ -11,6 +11,7 @@ export const addElement = (element) => {
   return {
     type: actionTypes.ADD_ELEMENT,
     id: `element${++elementId}`,
+    pageId: pageId,
     element
   };
 };
