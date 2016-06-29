@@ -2,11 +2,11 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const Element = ({theme}) => {
+const Element = ({theme, type}) => {
   const styles = getStyles(theme);
 
   return (<a style={styles.block} href='#'>
-    T
+    {type}
   </a>);
 };
 

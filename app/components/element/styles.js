@@ -8,7 +8,7 @@ export default function getStyles(theme) {
       height: unit * 6,
       marginBottom: unit,
       fontWeight: 800,
-      fontSize: unit * 4,
+      fontSize: unit * 2,
       textDecoration: 'none',
       borderBottom: '0.5px solid ' + theme.PALETTE.border,
       display: 'block',

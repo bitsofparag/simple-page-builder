@@ -6,6 +6,8 @@ import getStyles from './styles.js';
 
 const styles = getStyles();
 
+const elementTypes = ['input', 'textarea', 'p', 'file', 'radio'];
+
 export default class ToolbarContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,9 @@ export default class ToolbarContainer extends React.Component {
 
   render() {
     return (<div style={styles.block}>
-      <Element theme={this.props.theme} />
+      {elementTypes.map(type =>
+        <Element key={type} {...this.props} type={type} />
+      )}
     </div>);
   }
 }
