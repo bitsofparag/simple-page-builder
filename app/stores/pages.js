@@ -5,15 +5,14 @@
 import actionTypes from '../actions/actionTypes';
 
 let defaultPage = {
-  id: 1,
   title: 'New page title',
   elements: []
 };
 
-const pages = (state = [defaultPage], action) => {
+const pages = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_PAGE:
-      let newPage = Object.assign({}, action.page, {
+      let newPage = Object.assign({}, action.page || defaultPage, {
         id: action.id
       });
 

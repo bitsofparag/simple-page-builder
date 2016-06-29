@@ -15,10 +15,14 @@
     f. ExportButton
     
 - 005 Create Element Actions
-    a. addElement action - returns {type: ADD_ELEMENT, elementInstance}
+    a. addElement action - to add a new element instance to the state
+    <sup>returns {type: ADD_ELEMENT, elementInstance}</sup>
     
 - 006 Create Page Actions
-    a. addPage action - returns {type: ADD_PAGE, pageInstance}
+    a. addPage action - to add a new page instance to the state
+    <sup>returns {type: ADD_PAGE, pageInstance}</sup>
+    b. getCurrentPage action - to get the currently active page (page id)
+    <sup>returns {type: GET_CURRENT_PAGE, currentPageId}</sup>
     
 - 007 Create Element Store with the following reducers:
     a. add new Element -> returns new state of elements
@@ -36,7 +40,6 @@
 
 - 011 Create Page Container
     a. newPage method that dispatches ADD_PAGE action
-    b. 
     
 - 012 Implement simple drag n drop
     a. install DnD library

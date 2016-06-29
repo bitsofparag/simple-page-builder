@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 
 // app stores
 import {createStore} from 'redux';
-import rootReducer from './stores';
+import store from './stores';
+
+// app actions
+import {addPage} from './actions';
 
 // component views
 import Header from './components/header';
@@ -17,11 +20,13 @@ import ExportButton from './components/export-button';
 import getStyles from './appStyles';
 import theme from './theme';
 
+// initialize the product builder data store
+const storeWrapper = createStore(store);
 
-const productBuilderStore = createStore(rootReducer);
+// initialize the app styles
 const styles = getStyles(theme);
 
-console.log(productBuilderStore.getState());
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -42,4 +47,8 @@ class App extends React.Component {
   }
 }
 
+// render the root product builder component in the DOM
 ReactDOM.render(<App />, document.getElementById('app'));
+
+// dispatch action to create a new page in the store (which is the currently displayed page)
+storeWrapper.dispatch(addPage());
