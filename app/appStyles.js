@@ -23,7 +23,10 @@ export default function getStyles(theme) {
     __mainContent: {
       width: '75%',
       boxSizing: 'border-box',
-      padding: theme.GRID.unit
+      padding: theme.GRID.unit,
+      display:'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-end'
     }
   };
 }

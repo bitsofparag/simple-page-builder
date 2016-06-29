@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import Header from './components/header';
 import Toolbar from './components/toolbar';
 import Canvas from './components/canvas'
+import SavePageButton from './components/save-page-button'
 
 // style libs
 import getStyles from './appStyles';
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Toolbar theme={theme} />
       </div>
       <div style={styles.__mainContent}>
+        <SavePageButton theme={theme} />
         <Canvas theme={theme} />
       </div>
     </div>);
