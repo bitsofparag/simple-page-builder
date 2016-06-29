@@ -16,23 +16,26 @@
     
 - 005 Create Element Actions
     a. addElement action - to add a new element instance to the state
-    <sup>returns {type: ADD_ELEMENT, elementInstance}</sup>
+    <sup>returns `{type: ADD_ELEMENT, elementInstance}`</sup>
     
 - 006 Create Page Actions
     a. addPage action - to add a new page instance to the state
-    <sup>returns {type: ADD_PAGE, pageInstance}</sup>
+    <sup>returns `{type: ADD_PAGE, pageInstance}`</sup>
     b. getCurrentPage action - to get the currently active page (page id)
-    <sup>returns {type: GET_CURRENT_PAGE, currentPageId}</sup>
+    <sup>returns `{type: GET_CURRENT_PAGE, currentPageId}`</sup>
     
 - 007 Create Element Store with the following reducers:
-    a. add new Element -> returns new state of elements
+    a. add new Element
+    <sup>returns new state (array) of elements</sup>
 
 - 008 Create Page Store with the following reducers:
-    a. add new Page -> returns new state of pages
-    b. update page instance with added new elements -> returns new state of pages
+    a. add new Page
+    <sup>returns new state (array) of pages</sup>
+    b. update page instance with added new elements
+    <sup>returns new state (array) of pages</sup>
 
 - 009 Create ProductBuilder Store
-    a. combine Page and Element reducers -> returns complete state of ProductBuilder {pages, elements}
+    a. combine Page and Element reducers using `combineReducers`
     
 - 010 Create Toolbar Container
     a. create input, textarea elements
