@@ -3,7 +3,8 @@ export default {
   CONTENT_WIDTH: 70,
   PALETTE: {
     primary: 'rgb(76, 74, 72)',
-    accent: 'rgb(210, 50, 50)'
+    accent: 'rgb(210, 50, 50)',
+    border: 'rgb(200, 200, 240)'
   },
   GRID: {
     unit: 8

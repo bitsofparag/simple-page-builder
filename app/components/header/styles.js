@@ -7,7 +7,8 @@ export default function getStyles(theme) {
       alignItems: 'center',
       marginBottom: theme.GRID.unit * 2,
       justifyContent: 'center',
-      fontWeight: 500
+      fontWeight: 500,
+      color: theme.PALETTE.primary
     }
   };
 }

@@ -3,15 +3,17 @@ export default function getStyles(theme) {
 
   return {
     block: {
-      width: unit * 6,
+      width: '100%',
+      color: theme.PALETTE.primary,
       height: unit * 6,
       marginBottom: unit,
       fontWeight: 800,
       fontSize: unit * 4,
       textDecoration: 'none',
-      border: '0.5px solid ' + theme.PALETTE.primary,
+      borderBottom: '0.5px solid ' + theme.PALETTE.border,
       display: 'block',
-      textAlign: 'center'
+      textAlign: 'center',
+      boxSizing: 'border-box'
     }
   };
 }

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 // component views
 import Header from './components/header';
 import Toolbar from './components/toolbar';
+import Canvas from './components/canvas'
 
 // style libs
 import getStyles from './appStyles';
@@ -22,7 +23,9 @@ class App extends React.Component {
       <div style={styles.__leftSidebar}>
         <Toolbar theme={theme} />
       </div>
-      <div style={styles.__mainContent}></div>
+      <div style={styles.__mainContent}>
+        <Canvas theme={theme} />
+      </div>
     </div>);
   }
 }
