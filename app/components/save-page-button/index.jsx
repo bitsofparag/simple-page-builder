@@ -6,7 +6,7 @@ const SavePageButton = ({theme}) => {
   const styles = getStyles(theme);
 
   return (<button style={styles.block}>
-    Save
+    Save page
   </button>);
 };
 

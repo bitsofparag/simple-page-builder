@@ -6,7 +6,6 @@ export default function getStyles(theme) {
       marginBottom: theme.GRID.unit * 2,
       fontWeight: 500,
       color: theme.PALETTE.primary,
-      textTransform: 'uppercase',
       backgroundColor: theme.PALETTE.accent,
       border: 0
     },
