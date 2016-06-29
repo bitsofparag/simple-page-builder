@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 // app stores
 import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import store from './stores';
 
 // app actions
@@ -48,7 +49,16 @@ class App extends React.Component {
 }
 
 // render the root product builder component in the DOM
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={storeWrapper}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);
 
 // dispatch action to create a new page in the store (which is the currently displayed page)
 storeWrapper.dispatch(addPage());
+
+ setInterval(function() {
+  console.log(storeWrapper.getState());
+ }, 2000);

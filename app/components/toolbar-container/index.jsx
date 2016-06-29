@@ -1,39 +1,41 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import ToolbarButton from '../toolbar-button';
-import Element from '../element';
+import element from '../element';
 
 import {addElement} from '../../actions';
 
-import getStyles from './styles.js';
+import getStyles from './styles';
 
 const styles = getStyles();
 
 const elementTypes = ['input', 'textarea', 'p', 'file', 'radio'];
 
-export default class ToolbarContainer extends React.Component {
-  constructor(props) {
-    super(props);
+let ToolbarContainer = ({theme, onClick}) => {
+  return (<div style={styles.block}>
+    {elementTypes.map(type =>
+      <ToolbarButton
+        key={type}
+        type={type}
+        theme={theme}
+        onClick={onClick(type)} />
+    )}
+  </div>);
+};
 
-    this.state = {};
-    this._handleClick = this._handleClick.bind(this);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: (type) => {
+      return (event) => {
+        event.preventDefault();
+        let addElementAction = addElement(element(type));
+        dispatch(addElementAction);
+      };
+    }
   }
+};
 
-  _handleClick(type) {
-    return (e) => {
-      e.preventDefault();
-      console.log('clicked', type);
-    };
-  }
+ToolbarContainer = connect(null, mapDispatchToProps)(ToolbarContainer);
 
-  render() {
-    return (<div style={styles.block}>
-      {elementTypes.map(type =>
-        <ToolbarButton {...this.props}
-          key={type}
-          type={type}
-          onClick={this._handleClick(type)} />
-      )}
-    </div>);
-  }
-}
+export default ToolbarContainer;

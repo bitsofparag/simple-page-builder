@@ -3,8 +3,10 @@
  * @param type
  * @returns {{tagName: *}}
  */
-export const element = (type) => {
+const element = (type) => {
   return {
     tagName: type
   }
 };
+
+export default element;

@@ -4,16 +4,14 @@
 
 import actionTypes from './actionTypes';
 
-// NOTE: these can be set with an API call to a service or backend
-let elementId = 0;
-let pageId = 0;
-let currentPageId = pageId;
+import * as keysStore from '../stores/keys';
 
 export const addElement = (element) => {
   return {
     type: actionTypes.ADD_ELEMENT,
-    id: `element${++elementId}`,
-    element
+    element: Object.assign(element, {
+      id: keysStore.generateElementId()
+    })
   };
 };
 
@@ -21,14 +19,8 @@ export const addElement = (element) => {
 export const addPage = (page) => {
   return {
     type: actionTypes.ADD_PAGE,
-    id: `page${++currentPageId}`,
-    page
-  };
-};
-
-export const getCurrentPage = () => {
-  return {
-    type: actionTypes.GET_CURRENT_PAGE,
-    currentPageId: currentPageId
+    page: Object.assign(page || {}, {
+      id: keysStore.generatePageId()
+    })
   };
 };
