@@ -35,19 +35,15 @@
     a. combine Page and Element reducers -> returns complete state of ProductBuilder {pages, elements}
     
 - 010 Create Toolbar Container
-    a. onClick method that dispatches ADD_ELEMENT action
+    a. create input, textarea elements
+    b. create radio button element
+    c. create file input element
+    d. create paragraph element
+    e. onClick method that dispatches ADD_ELEMENT action
     
-
 - 011 Create Page Container
     a. newPage method that dispatches ADD_PAGE action
     
 - 012 Implement simple drag n drop
     a. install DnD library
     b. simple DnD from Toolbar to Canvas
-
-- 013 Create toolbar elements
-    a. Paragraph
-    b. Text input
-    c. Textarea
-    d. Radio button
-    e. File Input

@@ -6,7 +6,7 @@ import getStyles from './styles.js';
 
 const styles = getStyles();
 
-export default class Toolbar extends React.Component {
+export default class ToolbarContainer extends React.Component {
   constructor(props) {
     super(props);
 

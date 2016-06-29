@@ -11,7 +11,7 @@ import {addPage} from './actions';
 
 // component views
 import Header from './components/header';
-import Toolbar from './components/toolbar';
+import ToolbarContainer from './components/toolbar-container';
 import Canvas from './components/canvas'
 import NewPageButton from './components/new-page-button'
 import ExportButton from './components/export-button';
@@ -37,7 +37,7 @@ class App extends React.Component {
       <Header theme={theme} />
       <div style={styles.__leftSidebar}>
         <NewPageButton theme={theme} />
-        <Toolbar theme={theme} />
+        <ToolbarContainer theme={theme} />
       </div>
       <div style={styles.__mainContent}>
         <ExportButton theme={theme} />
