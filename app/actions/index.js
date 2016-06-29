@@ -2,10 +2,7 @@
  * This file contains redux action creators
  */
 
-const actionTypes = {
-  ADD_ELEMENT: 'ADD_ELEMENT',
-  ADD_PAGE: 'ADD_PAGE'
-};
+import actionTypes from './actionTypes';
 
 let elementId = 0;
 let pageId = 0;
