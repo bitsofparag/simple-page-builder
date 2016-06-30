@@ -23,6 +23,8 @@ export default function getStyles(theme) {
       width: '100%',
       height: '100%',
       opacity: '0.95',
+      border: '0.5px solid',
+      borderColor: theme.PALETTE.border,
       backgroundRepeat: 'repeat',
       backgroundPosition: '0 0'
     },
@@ -40,8 +42,6 @@ export default function getStyles(theme) {
       display: 'flex',
       flexDirection: 'column',
       boxSizing:'border-box',
-      border: '0.5px solid',
-      borderColor: theme.PALETTE.border,
       borderRadius: 2
     },
 

@@ -9,6 +9,7 @@ const devServer = require('./config/dev-server');
 
 // local configs
 const PATHS = {
+  welcome: path.join(__dirname, 'app', 'components', 'welcome'),
   app: path.join(__dirname, 'app'),
   dist: path.join(__dirname, 'dist')
 };
@@ -24,6 +25,7 @@ const common = {
   },
 
   entry: {
+    welcome: PATHS.welcome,
     app: PATHS.app
   },
 
@@ -36,6 +38,11 @@ const common = {
     new HtmlWebpackPlugin({
       title: 'Simple Page Builder Demo',
       template: 'index.ejs'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Simple Page Builder Demo',
+      template: 'index.ejs',
+      filename: 'welcome.html'
     })
   ],
 
