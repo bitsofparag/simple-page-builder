@@ -1,33 +1,33 @@
 
-const elementDefaults = {
-  input: {
+const elementDefaults = [
+  {
     type: 'input',
     title: '<strong>input label here</strong>',
     placeholder: ''
   },
 
-  textarea: {
+  {
     type: 'textarea',
     title: '<strong>textarea label here</strong>',
     placeholder: ''
   },
 
-  radio: {
+  {
     type: 'radio',
     title: '<strong>radio label here<span class="mandatory">*</span></strong>',
     values: ['Ja', 'Nein']
   },
 
-  file: {
+  {
     type: 'file',
     title: '<strong>file input label here</strong>'
   },
 
-  p: {
+  {
     type: 'p',
     title: 'paragraph content here'
   }
-};
+];
 
 /**
  *
@@ -35,7 +35,11 @@ const elementDefaults = {
  * @returns {Object}
  */
 const element = (tagName) => {
-  return elementDefaults[tagName];
+  return elementDefaults.find(element => element.type === tagName);
 };
 
 export default element;
+
+export const getElementTypes = () => {
+  return elementDefaults.map(element => element.type);
+};

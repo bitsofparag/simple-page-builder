@@ -2,29 +2,23 @@
  * Keys store
  */
 
-let elementIdCounter = 0;
-let pageIdCounter = 0;
+import actionTypes from '../actions/actionTypes';
 
-export function keys(type) {
-  if (type === 'page') {
-    return {
-      currentOrder: pageIdCounter,
-      currentId: `page${pageIdCounter}`
-    }
+let defaultState = {
+  currentPageId: 0,
+  lastElementId: 0
+};
+
+export default function keys(state = defaultState, action) {
+  if (action.type === actionTypes.ADD_PAGE) {
+    return Object.assign({}, state, {
+      currentPageId: state.currentPageId + 1
+    });
   }
 
-  if (type === 'element') {
-    return {
-      currentOrder: elementIdCounter,
-      currentId: `element${elementIdCounter}`
-    };
+  if (action.type === actionTypes.ADD_ELEMENT) {
+    return Object.assign({}, state, {
+      lastElementId: state.lastElementId + 1
+    });
   }
-}
-
-export function generatePageId() {
-  return `page${++pageIdCounter}`;
-}
-
-export function generateElementId() {
-  return `element${++elementIdCounter}`;
 }

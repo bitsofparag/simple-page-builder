@@ -5,16 +5,22 @@ import PageTitle from '../page-title';
 
 import getStyles from './styles';
 
-const Canvas = ({theme}) => {
+let Canvas = ({elements, page}, {theme}) => {
   const styles = getStyles(theme);
 
+  console.log('rendering in canvas page ->', page);
   return (<div style={styles.block}>
-    <PageTitle theme={theme} />
+    <PageTitle title={page && page.title} />
   </div>);
 };
 
 Canvas.propTypes = {
-  theme: PropTypes.object
+  elements: PropTypes.array,
+  pages: PropTypes.array
 };
+
+Canvas.contextTypes = {
+  theme: PropTypes.object
+}
 
 export default Canvas;

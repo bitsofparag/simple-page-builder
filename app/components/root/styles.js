@@ -1,7 +1,6 @@
 
 export default function getStyles(theme) {
 
-
   return {
     block: {
       width: '80%',
@@ -18,7 +17,12 @@ export default function getStyles(theme) {
       width: '25%',
       boxSizing: 'border-box',
       padding: theme.GRID.unit,
-      paddingTop: theme.GRID.unit * 7
+      paddingTop: theme.GRID.unit * 7,
+      height: '400px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+      justifyContent: 'flex-start'
     },
 
     __mainContent: {

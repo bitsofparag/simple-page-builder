@@ -4,12 +4,15 @@
 
 import actionTypes from './actionTypes';
 
-import * as keysStore from '../stores/keys';
+import keys from '../stores/keys';
 
-export const addElement = (element) => {
+import element from '../components/element';
+
+export const addElement = (type) => {
+  console.log('adding element ', type);
   return {
     type: actionTypes.ADD_ELEMENT,
-    element: Object.assign(element, {
+    element: Object.assign(element(type), {
       id: keysStore.generateElementId()
     })
   };
@@ -17,9 +20,10 @@ export const addElement = (element) => {
 
 
 export const addPage = (page) => {
+  console.log('calling new page action to add id', page);
   return {
     type: actionTypes.ADD_PAGE,
-    page: Object.assign(page || {}, {
+    page: Object.assign({}, page, {
       id: keysStore.generatePageId()
     })
   };

@@ -46,8 +46,8 @@
     c. create file input element
     d. create paragraph element
 
-- 012 Create HTMLElement component that renders on Page canvas
-
-- 013 Create Page Container
-    a. newPage method that dispatches ADD_PAGE action
+- 012 Create Page Container
+    a. connect page container so that it passes store changes to it's children i.e Canvas
+    
+- 013 Create HTMLElement component that renders on Canvas component
 

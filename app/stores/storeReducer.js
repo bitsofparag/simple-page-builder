@@ -1,14 +1,12 @@
-/**
- * Main application store
- */
-
 import { combineReducers } from 'redux';
 import elements from './elements';
 import pages from './pages';
+import keys from './keys';
 
-const productBuilderStore = combineReducers({
+const storeReducer = combineReducers({
+  keys,
   pages,
   elements
 });
 
-export default productBuilderStore;
+export default storeReducer;

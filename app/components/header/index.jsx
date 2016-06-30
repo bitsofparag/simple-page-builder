@@ -2,15 +2,15 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const Header = ({theme}) => {
-  const styles = getStyles(theme);
+const Header = (props, {theme}) => {
+  const styles = getStyles(theme); // styles not cached
 
   return (<div style={styles.block}>
     Product Builder
   </div>);
 };
 
-Header.propTypes = {
+Header.contextTypes = {
   theme: PropTypes.object
 };
 

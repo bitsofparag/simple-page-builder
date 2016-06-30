@@ -2,15 +2,19 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const PageTitle = ({theme}) => {
+const PageTitle = ({title}, {theme}) => {
   const styles = getStyles(theme);
 
   return (<div style={styles.block}>
-    Page Title
+    {title}
   </div>);
 };
 
 PageTitle.propTypes = {
+  title: PropTypes.string
+};
+
+PageTitle.contextTypes = {
   theme: PropTypes.object
 };
 
