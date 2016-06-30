@@ -27,7 +27,7 @@ class Root extends Component {
       </div>
       <div style={styles.__mainContent}>
         <ExportButton />
-        <PageContainer />
+        {this.props.children}
       </div>
     </div>);
   }

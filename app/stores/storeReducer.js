@@ -4,7 +4,6 @@ import pages from './pages';
 import keys from './keys';
 
 const storeReducer = combineReducers({
-  keys,
   pages,
   elements
 });

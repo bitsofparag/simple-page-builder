@@ -22,3 +22,11 @@ export default function keys(state = defaultState, action) {
     });
   }
 }
+
+export function generatePageId() {
+  return 'page001'
+}
+
+export function generateElementId() {
+  return 'element001'
+}

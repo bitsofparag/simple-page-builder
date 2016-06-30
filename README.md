@@ -49,5 +49,7 @@
 - 012 Create Page Container
     a. connect page container so that it passes store changes to it's children i.e Canvas
     
-- 013 Create HTMLElement component that renders on Canvas component
+- 013 Add internal router
+
+- 014 Create HTMLElement component that renders on Canvas component
 
