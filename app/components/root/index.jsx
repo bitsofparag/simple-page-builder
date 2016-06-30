@@ -20,7 +20,6 @@ class Root extends Component {
 
   render() {
     return (<div style={styles.block}>
-      <Header />
       <div style={styles.__leftSidebar}>
         <NewPageButton />
         <ToolbarContainer />

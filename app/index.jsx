@@ -2,12 +2,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {Router, Route, browserHistory, Redirect} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
-// get Root component
+// get all components to be rendered
 import Root from './components/root';
-
-// get Canvas section
+import Welcome from './components/welcome';
 import PageContainer from './components/page-container';
 
 // get store (for the entire app)
@@ -21,8 +20,8 @@ store.subscribe((state) => {
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route component={Root}>
-        <Redirect from='/' to='pages/1' component={PageContainer}></Redirect>
+      <Route component={Root} path='/'>
+        <IndexRoute component={Welcome}></IndexRoute>
         <Route path='pages/(:id)' component={PageContainer}></Route>
       </Route>
     </Router>

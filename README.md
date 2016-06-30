@@ -51,5 +51,7 @@
     
 - 013 Add internal router
 
-- 014 Create HTMLElement component that renders on Canvas component
+- 014 Add a welcome page (as the index route)
+
+- 015 Create HTMLElement component that renders on Canvas component
 
