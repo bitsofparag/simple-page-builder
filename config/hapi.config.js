@@ -11,6 +11,8 @@ const Reporter = require('good');
 const Inert = require('inert');
 
 // config objects
+const SERVER_HOST = 'localhost';
+const SERVER_PORT = 8000;
 const hapiOptions = {
   connections: {
     routes: {
@@ -37,7 +39,7 @@ let goodOptions = {
  * Create a new Hapi server
  */
 const server = new Hapi.Server(hapiOptions);
-server.connection({host: 'localhost', port: 1337});
+server.connection({host: SERVER_HOST, port: SERVER_PORT});
 
 
 /**
