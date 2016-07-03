@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 // get all components to be rendered
 import RootLayout from './components/root-layout';
@@ -21,7 +21,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={RootLayout}>
-        <Route path='welcome' component={Welcome}></Route>
+        <IndexRoute component={Welcome}></IndexRoute>
         <Route path='pages/(:id)' component={PageBuilderContainer}></Route>
       </Route>
     </Router>

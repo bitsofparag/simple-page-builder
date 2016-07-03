@@ -4,10 +4,13 @@ import {Link} from 'react-router';
 import getStyles from './styles';
 
 class Welcome extends Component {
-  getInitialState() {
-    return {
-      hovered: false
-    };
+  constructor(props) {
+    super(props);
+
+    this.state = {hovered: false}
+
+    this.onMouseOut = this.onMouseOut.bind(this);
+    this.onMouseOver = this.onMouseOver.bind(this);
   }
 
   onMouseOver() {
