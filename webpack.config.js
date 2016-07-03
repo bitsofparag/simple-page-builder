@@ -5,7 +5,7 @@ const validate = require('webpack-validator');
 const merge = require('webpack-merge');
 
 // external configs
-const devServer = require('./config/dev-server');
+const devServerConfig = require('./config/dev-server.webpack.config');
 
 // local configs
 const PATHS = {
@@ -16,7 +16,6 @@ const PATHS = {
 const TARGET = process.env.npm_lifecycle_event;
 
 process.env.BABEL_ENV = TARGET;
-
 
 const common = {
   resolve: {
@@ -29,7 +28,8 @@ const common = {
 
   output: {
     path: PATHS.dist,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/assets/'
   },
 
   plugins: [
@@ -55,8 +55,9 @@ switch(TARGET) {
 
     });
     break;
+  case 'develop':
   default: // `develop`
-    config = merge(common, devServer({
+    config = merge(common, devServerConfig({
       host: process.env.HOST,
       port: process.env.PORT
     }));

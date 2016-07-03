@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-const devServer = function(options) {
+const devServerConfig = function (options) {
   return {
     devServer: {
       historyApiFallback: true,
@@ -19,4 +19,4 @@ const devServer = function(options) {
   };
 };
 
-module.exports = devServer;
+module.exports = devServerConfig;
