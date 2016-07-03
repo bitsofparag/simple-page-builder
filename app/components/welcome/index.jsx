@@ -1,22 +1,22 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {Link} from 'react-router';
 
 import getStyles from './styles';
 
-let Welcome = React.createClass({
+class Welcome extends Component {
   getInitialState() {
     return {
       hovered: false
     };
-  },
+  }
 
   onMouseOver() {
     this.setState({hovered: !this.state.hovered});
-  },
+  }
 
   onMouseOut() {
     this.setState({hovered: !this.state.hovered});
-  },
+  }
 
   render() {
     const styles = getStyles(this.context.theme);
@@ -38,7 +38,7 @@ let Welcome = React.createClass({
       <div style={styles.__wrapper}></div>
     </div>);
   }
-});
+}
 
 
 Welcome.contextTypes = {

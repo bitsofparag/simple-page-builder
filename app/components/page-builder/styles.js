@@ -1,16 +1,8 @@
-
 export default function getStyles(theme) {
 
   return {
     block: {
-      width: '80%',
-      margin: '0 auto',
-      fontFamily: 'Helvetica Neue, Verdana, sans-serif',
-      fontSize: 16,
-      boxSizing: 'border-box',
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      flexWrap: 'wrap'
+      width: '100%'
     },
 
     __leftSidebar: {
@@ -29,7 +21,7 @@ export default function getStyles(theme) {
       width: '75%',
       boxSizing: 'border-box',
       padding: theme.GRID.unit,
-      display:'flex',
+      display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-end'
     }

@@ -1,7 +1,7 @@
 /**
  * Pages store - a collection of reducers that manage page data
  */
-import {keys, generatePageId} from './keys';
+
 import actionTypes from '../actions/actionTypes';
 
 const pages = (state = [], action) => {
@@ -16,9 +16,7 @@ const pages = (state = [], action) => {
       ];
 
     case actionTypes.ADD_ELEMENT:
-      console.log('calling store in page on element click', action);
-      let pageKeys = keys('page');
-      let index = pageKeys.currentOrder - 1;
+      let index = 1;
       let currentPage = Object.assign({}, state[index]);
       currentPage.elements.push(action.element.id);
 

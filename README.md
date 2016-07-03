@@ -59,13 +59,12 @@
 - 016 Refactor I - restructure views and containers; rename components
         
         <Provider>
-            <RootLayout> /* contains header, footer, page-container */
-                <Router>
+            <Router>
+                <RootLayout> /* contains header, footer, page-container */
                     <Welcome path='/'> /* welcome screen if new session */
                     <PageBuilder path='pages/:id'> /* if old session */
-                <test>
-                </Router>
-            </RootLayout>
+                </RootLayout>
+            </Router>
         </Provider>
 
 - 017 Configure `react-router` to manage routes for components
