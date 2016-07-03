@@ -15,8 +15,6 @@ const PATHS = {
 };
 
 const TARGET = process.env.npm_lifecycle_event;
-const DEV_SERVER_HOST = 'localhost';
-const DEV_SERVER_PORT = 8001;
 
 process.env.BABEL_ENV = TARGET;
 
@@ -32,12 +30,11 @@ const common = {
   output: {
     path: PATHS.dist,
     filename: '[name].js',
-    publicPath: `http://${DEV_SERVER_HOST}:${DEV_SERVER_PORT}/assets/`
+    publicPath: `/assets/`
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      hash: true,
       title: 'Simple Page Builder Demo',
       template: PATHS.htmlTemplate
     })
@@ -61,10 +58,7 @@ switch(TARGET) {
     break;
   case 'develop':
   default: // `develop`
-    config = merge(common, devServerConfig({
-      host: DEV_SERVER_HOST,
-      port: DEV_SERVER_PORT
-    }));
+    config = merge.smart(common, devServerConfig());
     break;
 }
 

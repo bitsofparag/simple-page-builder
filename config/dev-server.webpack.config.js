@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 
+const DEV_SERVER_HOST = 'localhost';
+const DEV_SERVER_PORT = 8001;
+
 const devServerConfig = function (options) {
   return {
     devServer: {
@@ -7,8 +10,12 @@ const devServerConfig = function (options) {
       inline: true,
       hot: true,
       stats: 'errors-only',
-      host: options.host,
-      port: options.port
+      host: DEV_SERVER_HOST,
+      port: DEV_SERVER_PORT
+    },
+
+    output: {
+      publicPath: `http://${DEV_SERVER_HOST}:${DEV_SERVER_PORT}/assets/`
     },
 
     plugins: [
