@@ -16,20 +16,13 @@ store.subscribe((state) => {
   console.log('WOAH! state changed', store.getState());
 });
 
-function checkForApps({params}, replace) {
-  if (params.pageId) {
-    let pageId = params.pageId;
-    store.dispatch()
-  }
-}
-
 // render the root-layout product builder component in the DOM
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/' component={RootLayout} onEnter={checkForApps}>
+      <Route path='/' component={RootLayout}>
         <IndexRoute component={Welcome}></IndexRoute>
-        <Route path='pages/(:pageId)' component={PageBuilderContainer}></Route>
+        <Route path='pages/:pageId' component={PageBuilderContainer}></Route>
       </Route>
     </Router>
   </Provider>,
