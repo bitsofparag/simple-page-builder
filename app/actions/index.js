@@ -6,16 +6,24 @@ import actionTypes from './actionTypes';
 
 import element from '../components/element';
 
-function generateElementId() {
-  return `pageId`;
+let pageCounter = 0;
+let elementCounter = 0;
+
+function generatePageId() {
+  return ++pageCounter;
 }
 
-export const addElement = (type) => {
+function generateElementId(pageId) {
+  return pageId + '-' + (++elementCounter);
+}
+
+export const addElement = (type, currentPageId) => {
   console.log('adding element ', type);
   return {
     type: actionTypes.ADD_ELEMENT,
+    currentPageId: currentPageId,
     element: Object.assign(element(type), {
-      id: generateElementId()
+      id: generateElementId(currentPageId)
     })
   };
 };
@@ -25,15 +33,8 @@ export const addPage = (page) => {
   console.log('calling new page action to add id', page);
   return {
     type: actionTypes.ADD_PAGE,
-    page: Object.assign({}, page)
-  };
-};
-
-
-export const getPage = (pageId) => {
-  console.log('getting page', pageId);
-  return {
-    type: actionTypes.GET_PAGE,
-    pageId
+    page: Object.assign({}, page, {
+      id: generatePageId()
+    })
   };
 };

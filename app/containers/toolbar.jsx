@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 
 import ToolbarButton from '../components/toolbar-button';
@@ -8,25 +8,30 @@ import {addElement} from '../actions';
 import {getElementTypes} from '../components/element';
 
 class ToolbarContainer extends Component {
+  static propTypes = {
+    currentPageId: PropTypes.number.isRequired,
+    onClick: PropTypes.func.isRequired
+  };
+
   render() {
-    let {onClick} = this.props;
+    let {onClick, currentPageId} = this.props;
 
     return (<div>
       {getElementTypes().map(type =>
         <ToolbarButton
           key={type}
           type={type}
-          onClick={onClick(type)} />
+          onClick={onClick(type, currentPageId)} />
       )}
     </div>);
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick(type) {
+  onClick(type, currentPageId) {
     return (event) => {
       event.preventDefault();
-      dispatch(addElement(type));
+      dispatch(addElement(type, currentPageId));
     };
   }
 });

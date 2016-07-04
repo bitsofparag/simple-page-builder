@@ -2,15 +2,21 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
-import {addPage, getPage} from '../actions'
+import {addPage} from '../actions';
+
+import getCurrentPage from '../reducers/currentPage';
 
 import PageBuilder from '../components/page-builder';
 
 const defaultPage = {
-  id: 1,
   title: 'New Page Title',
   elements: []
 };
+
+const Loader = () => {
+  return (<div>Loading your page</div>);
+};
+
 
 /**
  * PageContainer - view controller for page
@@ -31,48 +37,41 @@ class PageBuilderContainer extends Component {
   };
 
   componentWillMount() {
-    let {params, router, createNewPage} = this.props;
+    let {params, createNewPage} = this.props
 
     if (params.pageId === 'new') {
       createNewPage(defaultPage);
-      return this;
     }
   }
 
+  /**
+   * NOTE: There seems to be an odd behavior where currentPage is undefined even
+   * though the state is updated with a valid currentPage. Hence the Loader
+   *
+   * @returns {XML}
+   */
   render() {
     let {currentPage} = this.props;
 
-    return (
-      <PageBuilder page={currentPage} />
-    );
-  }
+    if (!currentPage) {
+      return <Loader />
+    }
 
+    return <PageBuilder page={currentPage}/>;
+
+  }
 }
 
 // called when state change happens
-const mapStateToProps = ({pages, elements}, {params}) => ({
-  currentPage: (() => {
-    let page = pages.find(page => page.id == params.pageId);
-
-    if (params.pageId === 'new') {
-      page = pages[pages.length - 1];
-    }
-
-    if (page) {
-      page.elements = page.elements.map(elemId => {
-        return elements.find(element => element.id === elemId);
-      });
-    }
-
-    return page;
-  })()
+const mapStateToProps = (state, ownProps) => ({
+  currentPage: getCurrentPage(state, ownProps)
 });
 
 const mapDispatchToProps = {
   createNewPage: addPage
 };
 
-//// wrap PageContainer via dependency injection
+
 PageBuilderContainer = withRouter(
   connect(mapStateToProps, mapDispatchToProps)(PageBuilderContainer)
 );
