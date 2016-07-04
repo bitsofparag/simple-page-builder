@@ -1,3 +1,12 @@
+##A Simple Page Creator
+
+####Main tech stack being used
+- React
+- Redux
+- Hapi
+- Webpack with Babel support
+- React Router
+
 ####Task List
 
 - 001 Set up scaffold for SPA
