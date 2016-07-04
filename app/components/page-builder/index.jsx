@@ -4,6 +4,7 @@ import React, {Component, PropTypes} from 'react';
 import NewPageButton from '../new-page-button';
 import ToolbarContainer from './../../containers/toolbar';
 import ExportButton from '../export-button';
+import Canvas from '../canvas';
 
 // style libs
 import getStyles from './styles';
@@ -13,14 +14,18 @@ let PageBuilder = (props, {theme}) => {
 
   return (<div style={styles.block}>
     <div style={styles.__leftSidebar}>
-      <NewPageButton />
-      <ToolbarContainer />
+      <NewPageButton theme={theme} {...props} />
+      <ToolbarContainer theme={theme} {...props} />
     </div>
     <div style={styles.__mainContent}>
-      <ExportButton />
-      {this.props.children}
+      <ExportButton theme={theme} {...props} />
+      <Canvas theme={theme} {...props} />
     </div>
   </div>);
+};
+
+PageBuilder.contextTypes = {
+  theme: PropTypes.object
 };
 
 export default PageBuilder;

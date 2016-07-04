@@ -15,6 +15,9 @@ const pages = (state = [], action) => {
         action.page
       ];
 
+    case actionTypes.GET_PAGE:
+      return state.find((page) => page.id === action.pageId);
+
     case actionTypes.ADD_ELEMENT:
       let index = 1;
       let currentPage = Object.assign({}, state[index]);

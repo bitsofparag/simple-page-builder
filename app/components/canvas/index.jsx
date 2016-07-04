@@ -5,7 +5,7 @@ import PageTitle from '../page-title';
 
 import getStyles from './styles';
 
-let Canvas = ({elements, page}, {theme}) => {
+let Canvas = ({page, theme}) => {
   const styles = getStyles(theme);
 
   console.log('rendering in canvas page ->', page);
@@ -15,12 +15,8 @@ let Canvas = ({elements, page}, {theme}) => {
 };
 
 Canvas.propTypes = {
-  elements: PropTypes.array,
-  pages: PropTypes.array
-};
-
-Canvas.contextTypes = {
+  pages: PropTypes.array,
   theme: PropTypes.object
-}
+};
 
 export default Canvas;

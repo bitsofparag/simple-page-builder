@@ -25,8 +25,15 @@ export const addPage = (page) => {
   console.log('calling new page action to add id', page);
   return {
     type: actionTypes.ADD_PAGE,
-    page: Object.assign({}, page, {
-      id: generateElementId()
-    })
+    page: Object.assign({}, page)
+  };
+};
+
+
+export const getPage = (pageId) => {
+  console.log('getting page', pageId);
+  return {
+    type: actionTypes.GET_PAGE,
+    pageId
   };
 };

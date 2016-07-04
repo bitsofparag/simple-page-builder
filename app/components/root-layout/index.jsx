@@ -7,22 +7,20 @@ import theme from './theme';
 const styles = getStyles(theme);
 
 class RootLayout extends Component {
+  static childContextTypes = {
+    theme: PropTypes.object
+  };
+
   getChildContext() {
     return { theme }
   }
 
   render() {
-    console.log('children', this.props.children)
     return (<div style={styles.block}>
       {this.props.children}
     </div>);
   }
 
 }
-
-// NOTE: not a recommended approach; only to be used for `theme`
-RootLayout.childContextTypes = {
-  theme: PropTypes.object
-};
 
 export default RootLayout;

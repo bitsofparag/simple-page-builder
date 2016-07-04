@@ -1,11 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
 import {addPage, getPage} from '../actions'
 
-import Canvas from '../components/canvas';
+import PageBuilder from '../components/page-builder';
 
+const defaultPage = {
+  id: 1,
+  title: 'New Page Title',
+  elements: []
+};
 
 /**
  * PageContainer - view controller for page
@@ -17,34 +22,59 @@ class PageBuilderContainer extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentPage: undefined
-    }
   }
 
+  static propTypes = {
+    createNewPage: PropTypes.func,
+    router: PropTypes.object,
+    params: PropTypes.object
+  };
+
   componentWillMount() {
-    if (!this.state.currentPage) {
-      this.props.router.replace('/');
+    let {params, router, createNewPage} = this.props;
+
+    if (params.pageId === 'new') {
+      createNewPage(defaultPage);
       return this;
     }
   }
 
   render() {
-    let {page, elements} = this.props;
+    let {currentPage} = this.props;
 
     return (
-      <Canvas page={page} elements={elements} />
+      <PageBuilder page={currentPage} />
     );
   }
 
 }
 
-const mapStateToProps = ({pages}, {params}) => ({
-  currentPage: pages.find(page => page.id === params.pageId)
+// called when state change happens
+const mapStateToProps = ({pages, elements}, {params}) => ({
+  currentPage: (() => {
+    let page = pages.find(page => page.id == params.pageId);
+
+    if (params.pageId === 'new') {
+      page = pages[pages.length - 1];
+    }
+
+    if (page) {
+      page.elements = page.elements.map(elemId => {
+        return elements.find(element => element.id === elemId);
+      });
+    }
+
+    return page;
+  })()
 });
 
+const mapDispatchToProps = {
+  createNewPage: addPage
+};
+
 //// wrap PageContainer via dependency injection
-PageBuilderContainer = withRouter(connect(mapStateToProps)(PageBuilderContainer));
+PageBuilderContainer = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(PageBuilderContainer)
+);
 
 export default PageBuilderContainer;

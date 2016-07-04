@@ -32,7 +32,7 @@ class Welcome extends Component {
     return (<div style={styles.block}>
       <div style={styles.__content}>
         <h2 style={styles.__title}>Let's create a simple web page</h2>
-        <Link to='pages/1' style={buttonStyles}
+        <Link to='pages/new' style={buttonStyles}
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}>
           Get started
