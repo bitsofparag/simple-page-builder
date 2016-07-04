@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
-import {addPage} from '../actions'
+import {addPage, getPage} from '../actions'
 
 import Canvas from '../components/canvas';
 
@@ -15,12 +15,23 @@ import Canvas from '../components/canvas';
  */
 class PageBuilderContainer extends Component {
 
-  render() {
-    let {page, elements, params} = this.props;
+  constructor(props) {
+    super(props);
 
-    if (!page) {
-      return <div>Loading canvas...</div>
+    this.state = {
+      currentPage: undefined
     }
+  }
+
+  componentWillMount() {
+    if (!this.state.currentPage) {
+      this.props.router.replace('/');
+      return this;
+    }
+  }
+
+  render() {
+    let {page, elements} = this.props;
 
     return (
       <Canvas page={page} elements={elements} />
@@ -29,7 +40,11 @@ class PageBuilderContainer extends Component {
 
 }
 
+const mapStateToProps = ({pages}, {params}) => ({
+  currentPage: pages.find(page => page.id === params.pageId)
+});
+
 //// wrap PageContainer via dependency injection
-PageBuilderContainer = connect()(PageBuilderContainer);
+PageBuilderContainer = withRouter(connect(mapStateToProps)(PageBuilderContainer));
 
 export default PageBuilderContainer;
