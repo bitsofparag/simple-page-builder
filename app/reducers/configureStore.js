@@ -1,9 +1,17 @@
 // app stores
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import storeReducer from './storeReducer';
 
-// initialize the store from the reducers (the entire ProductBuilder store)
+// reducers
+import elements from './elements';
+import pages from './pages';
+
+const storeReducer = combineReducers({
+  pages,
+  elements
+});
+
+// initialize the store from the reducers (the entire application store)
 const store = createStore(storeReducer);
 
 export default store;
