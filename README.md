@@ -83,9 +83,11 @@
     
 - 018 Add logging middleware
 
-- 019 Create a paragraph as HTMLElement that renders text on the Canvas
+- 019 Refactor Element class into separate files - new Elements can be easily imported/removed
+
+- 020 Create a paragraph as HTMLElement that renders text on the Canvas
  
-- 020 Set up a testing framework with Mocha and Karma
+- 021 Set up a testing framework with Mocha and Karma
  
-- 021 Set up localstorage implementation to persist the state
+- 022 Set up localstorage implementation to persist the state
 

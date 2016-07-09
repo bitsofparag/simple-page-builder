@@ -1,41 +1,21 @@
+import objectValues from 'object.values';
+import textarea from './textarea';
+import inputs from './input';
+import paragraph from './paragraph';
 
 const elementDefaults = [
-  {
-    type: 'input',
-    title: '<strong>input label here</strong>',
-    placeholder: ''
-  },
-
-  {
-    type: 'textarea',
-    title: '<strong>textarea label here</strong>',
-    placeholder: ''
-  },
-
-  {
-    type: 'radio',
-    title: '<strong>radio label here<span class="mandatory">*</span></strong>',
-    values: ['Ja', 'Nein']
-  },
-
-  {
-    type: 'file',
-    title: '<strong>file input label here</strong>'
-  },
-
-  {
-    type: 'p',
-    title: 'paragraph content here'
-  }
+  textarea,
+  ...objectValues(inputs),
+  paragraph
 ];
 
 /**
  *
- * @param {String} tagName
+ * @param {String} type
  * @returns {Object}
  */
-const element = (tagName) => {
-  return elementDefaults.find(element => element.type === tagName);
+const element = (type) => {
+  return elementDefaults.find(element => element.type === type);
 };
 
 export default element;
