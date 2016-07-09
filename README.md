@@ -80,10 +80,12 @@
     a. render RootLayout as the starting component
     b. add `onEnter` to RootLayout to check if url params map with state in stores
     c. redirect to Welcome or PageBuilder based on the above check
+    
+- 018 Add logging middleware
 
-- 018 Create a paragraph as HTMLElement that renders text on the Canvas
+- 019 Create a paragraph as HTMLElement that renders text on the Canvas
  
-- 019 Set up a testing framework with Mocha and Karma
+- 020 Set up a testing framework with Mocha and Karma
  
-- 020 Set up localstorage implementation to persist the state
+- 021 Set up localstorage implementation to persist the state
 

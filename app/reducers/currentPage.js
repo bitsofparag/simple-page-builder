@@ -1,6 +1,5 @@
 
 const currentPage = ({pages, elements}, {params}) => {
-  console.log('eval in currentPage', pages, elements, params);
   let page = pages.find(page => page.id == params.pageId);
 
   if (params.pageId === 'new') {

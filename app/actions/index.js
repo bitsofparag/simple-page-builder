@@ -18,7 +18,6 @@ function generateElementId(pageId) {
 }
 
 export const addElement = (type, currentPageId) => {
-  console.log('adding element ', type);
   return {
     type: actionTypes.ADD_ELEMENT,
     currentPageId: currentPageId,
@@ -30,7 +29,6 @@ export const addElement = (type, currentPageId) => {
 
 
 export const addPage = (page) => {
-  console.log('calling new page action to add id', page);
   return {
     type: actionTypes.ADD_PAGE,
     page: Object.assign({}, page, {

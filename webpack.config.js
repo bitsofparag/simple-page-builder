@@ -1,5 +1,6 @@
 // Load utils
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const validate = require('webpack-validator');
 const merge = require('webpack-merge');
@@ -14,7 +15,11 @@ const PATHS = {
   htmlTemplate: path.join(__dirname, 'index.ejs')
 };
 
-const TARGET = process.env.npm_lifecycle_event;
+let TARGET = 'development';
+
+if (/production/.test(process.env.npm_lifecycle_event)) {
+  TARGET = 'production';
+}
 
 process.env.BABEL_ENV = TARGET;
 
@@ -37,6 +42,10 @@ const common = {
     new HtmlWebpackPlugin({
       title: 'Simple Page Builder Demo',
       template: PATHS.htmlTemplate
+    }),
+
+    new webpack.DefinePlugin({
+      'process.env.MODE': JSON.stringify(TARGET)
     })
   ],
 
@@ -56,7 +65,8 @@ switch(TARGET) {
 
     });
     break;
-  case 'develop':
+
+  case 'development':
   default: // `develop`
     config = merge.smart(common, devServerConfig());
     break;

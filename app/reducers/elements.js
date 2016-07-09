@@ -8,8 +8,6 @@ const elements = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_ELEMENT:
 
-      console.log('calling store in elements', action);
-
       return [
         ...state,
         action.element
