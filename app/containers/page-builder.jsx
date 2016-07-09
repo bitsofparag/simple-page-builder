@@ -2,9 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 
-import {addPage} from '../actions';
-
-import getCurrentPage from '../reducers/currentPage';
+import {newPage} from '../actions';
 
 import PageBuilder from '../components/page-builder';
 
@@ -37,7 +35,7 @@ class PageBuilderContainer extends Component {
   };
 
   componentWillMount() {
-    let {params, createNewPage} = this.props
+    let {params, createNewPage} = this.props;
 
     if (params.pageId === 'new') {
       createNewPage(defaultPage);
@@ -51,24 +49,25 @@ class PageBuilderContainer extends Component {
    * @returns {XML}
    */
   render() {
-    let {currentPage} = this.props;
+    let {currentPage, elements} = this.props;
 
     if (!currentPage) {
       return <Loader />
     }
 
-    return <PageBuilder page={currentPage}/>;
+    return <PageBuilder page={currentPage} elements={elements} />;
 
   }
 }
 
 // called when state change happens
 const mapStateToProps = (state, ownProps) => ({
-  currentPage: getCurrentPage(state, ownProps)
+  currentPage: state.currentPage,
+  elements: state.elements
 });
 
 const mapDispatchToProps = {
-  createNewPage: addPage
+  createNewPage: newPage
 };
 
 

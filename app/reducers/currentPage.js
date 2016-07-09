@@ -1,18 +1,23 @@
+/**
+ * CurrentPage store - the current page
+ */
 
-const currentPage = ({pages, elements}, {params}) => {
-  let page = pages.find(page => page.id == params.pageId);
+import actionTypes from '../actions/actionTypes';
 
-  if (params.pageId === 'new') {
-    page = pages[pages.length - 1];
+const currentPage = (state = {}, action) => {
+
+  switch (action.type) {
+    // add a new page to the pages array/state
+
+    case actionTypes.ADD_ELEMENT:
+      let newState = Object.assign({}, state);
+      newState.elements.push(action.element.id);
+      return newState;
+
+    case actionTypes.NEW_PAGE:
+    default:
+      return Object.assign({}, action.page);
   }
-
-  if (page) {
-    page.elements = page.elements.map(elemId => {
-      return elements.find(element => element.id === elemId);
-    });
-  }
-
-  return page;
 };
 
 export default currentPage;

@@ -6,6 +6,7 @@ import createLogger from 'redux-logger';
 // reducers
 import elements from './elements';
 import pages from './pages';
+import currentPage from './currentPage';
 
 
 let middleWare;
@@ -18,6 +19,7 @@ if (process.env.MODE === 'development') {
 
 // initialize the store from the reducers (the entire application store)
 const storeReducer = combineReducers({
+  currentPage,
   pages,
   elements
 });

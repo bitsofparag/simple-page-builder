@@ -6,25 +6,32 @@ import HtmlElement from '../html-element';
 
 import getStyles from './styles';
 
-let getHtmlElements = (page) => {
-  if (!page) {
+let findCurrentPageElement = (id, elements) => {
+  return elements.find(element => element.id === id);
+};
+
+let getHtmlElements = (page, elements) => {
+  if (!page.elements || page.elements.length === 0) {
     return (<h4>No content available</h4>);
   }
 
-  return page.elements.map(element => <HtmlElement key={element.id} element={element} />);
+  return page.elements.map(elementId => <HtmlElement
+    key={elementId}
+    element={findCurrentPageElement(elementId, elements)}
+  />);
 };
 
-let Canvas = ({page, theme}) => {
+let Canvas = ({page, theme, elements}) => {
   const styles = getStyles(theme);
 
   return (<div style={styles.block}>
     <PageTitle title={page && page.title} />
-    {getHtmlElements(page)}
+    {getHtmlElements(page, elements)}
   </div>);
 };
 
 Canvas.propTypes = {
-  pages: PropTypes.array,
+  page: PropTypes.object,
   theme: PropTypes.object
 };
 

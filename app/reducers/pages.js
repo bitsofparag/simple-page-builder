@@ -13,17 +13,6 @@ const pages = (state = [], action) => {
         action.page
       ];
 
-    case actionTypes.ADD_ELEMENT:
-      let index = action.currentPageId - 1;
-      let currentPage = Object.assign({}, state[index]);
-      currentPage.elements.push(action.element.id);
-
-      return [
-        ...state.slice(0, index + 1),
-        currentPage,
-        ...state.slice(index + 2)
-      ];
-
     default:
       return state;
   }
