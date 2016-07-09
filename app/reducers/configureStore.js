@@ -10,14 +10,13 @@ import pages from './pages';
 
 let middleWare;
 
-console.log(process.env.MODE);
 if (process.env.MODE === 'development') {
+  // 1. add logging middleware
   const logger = createLogger();
   middleWare = applyMiddleware(logger);
 }
 
 // initialize the store from the reducers (the entire application store)
-
 const storeReducer = combineReducers({
   pages,
   elements
