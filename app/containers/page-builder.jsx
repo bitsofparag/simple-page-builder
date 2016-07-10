@@ -31,7 +31,10 @@ class PageBuilderContainer extends Component {
   static propTypes = {
     createNewPage: PropTypes.func,
     router: PropTypes.object,
-    params: PropTypes.object
+    params: PropTypes.object,
+    currentPage: PropTypes.object,
+    pages: PropTypes.array,
+    elements: PropTypes.array
   };
 
   componentWillMount() {
@@ -49,21 +52,24 @@ class PageBuilderContainer extends Component {
    * @returns {XML}
    */
   render() {
-    let {currentPage, elements} = this.props;
+    let {currentPage, elements, pages} = this.props;
 
     if (!currentPage) {
       return <Loader />
     }
 
-    return <PageBuilder page={currentPage} elements={elements} />;
+    return (<PageBuilder
+      pages={pages}
+      currentPage={currentPage}
+      elements={elements}
+    />);
 
   }
 }
 
 // called when state change happens
 const mapStateToProps = (state, ownProps) => ({
-  currentPage: state.currentPage,
-  elements: state.elements
+  ...state
 });
 
 const mapDispatchToProps = {

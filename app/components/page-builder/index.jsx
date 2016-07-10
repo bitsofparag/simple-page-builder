@@ -14,18 +14,24 @@ let PageBuilder = (props, {theme}) => {
 
   return (<div style={styles.block}>
     <div style={styles.__toolbar}>
-      <NewPageButton theme={theme} {...props} />
-      <ToolbarContainer theme={theme} currentPageId={props.page.id} />
+      <ToolbarContainer theme={theme} currentPageId={props.currentPage.id} />
       <ExportButton theme={theme} {...props} />
+      <NewPageButton theme={theme} {...props} />
     </div>
     <div style={styles.__mainContent}>
-      <Canvas theme={theme} {...props} />
+      <Canvas
+        theme={theme}
+        page={props.currentPage}
+        elements={props.elements}
+      />
     </div>
   </div>);
 };
 
 PageBuilder.propTypes = {
-  page: PropTypes.object
+  pages: PropTypes.array,
+  elements: PropTypes.array,
+  currentPage: PropTypes.object
 };
 
 PageBuilder.contextTypes = {

@@ -3,7 +3,7 @@ export default function getStyles(theme) {
 
   return {
     block: {
-      width: '80%',
+      width: '100%',
       marginLeft: unit * 2,
       display: 'flex',
       height: unit * 3,

@@ -37,6 +37,7 @@ let Canvas = ({page, theme, elements}) => {
 
 Canvas.propTypes = {
   page: PropTypes.object,
+  elements: PropTypes.array,
   theme: PropTypes.object
 };
 
