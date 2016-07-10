@@ -1,23 +1,11 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 
-import ToolbarButton from '../components/toolbar-button';
+import Toolbar from '../components/toolbar';
 
 import {addElement} from '../actions';
 
-import element, {getElementTypes} from '../components/element';
-
-const toolbarButtons = (onClick) => {
-  return getElementTypes().map(typeObj => {
-    let type = Object.keys(typeObj)[0];
-    let displayName = Object.values(typeObj)[0];
-
-    return (<ToolbarButton
-      key={type}
-      displayName={displayName}
-      onClick={onClick(type)}/>);
-  });
-};
+import element, {getElementTypes} from '../components/element-type';
 
 class ToolbarContainer extends Component {
   static propTypes = {
@@ -25,11 +13,8 @@ class ToolbarContainer extends Component {
   };
 
   render() {
-    let {onClick} = this.props;
 
-    return (<div>
-      {toolbarButtons(onClick)}
-    </div>);
+    return (<Toolbar onClick={this.props.onClick} />);
   }
 }
 

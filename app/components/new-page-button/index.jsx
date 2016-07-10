@@ -1,13 +1,10 @@
 import React, {PropTypes} from 'react';
 
-import getStyles from './styles';
+import Button from '../button';
 
-const NewPageButton = ({theme}) => {
-  const styles = getStyles(theme); // can be optimised by caching styles
+const NewPageButton = () => {
 
-  return (<a style={styles.block}>
-    New page
-  </a>);
+  return (<Button> + </Button>);
 };
 
 export default NewPageButton;

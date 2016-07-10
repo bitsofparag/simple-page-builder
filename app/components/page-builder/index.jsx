@@ -13,12 +13,12 @@ let PageBuilder = (props, {theme}) => {
   const styles = getStyles(theme);
 
   return (<div style={styles.block}>
-    <div style={styles.__leftSidebar}>
+    <div style={styles.__toolbar}>
       <NewPageButton theme={theme} {...props} />
       <ToolbarContainer theme={theme} currentPageId={props.page.id} />
+      <ExportButton theme={theme} {...props} />
     </div>
     <div style={styles.__mainContent}>
-      <ExportButton theme={theme} {...props} />
       <Canvas theme={theme} {...props} />
     </div>
   </div>);

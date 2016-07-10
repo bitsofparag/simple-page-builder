@@ -3,15 +3,15 @@ export default function getStyles(theme) {
 
   return {
     block: {
-      width: '100%',
-      color: theme.PALETTE.primary,
-      marginBottom: unit,
+      width: '80%',
+      marginLeft: unit * 2,
+      display: 'flex',
+      height: unit * 3,
       fontSize: unit * 2,
       textDecoration: 'none',
-      display: 'block',
       textAlign: 'center',
       boxSizing: 'border-box',
-      alignSelf: 'flex-start'
+      justifyContent: 'space-between'
     }
   };
 }

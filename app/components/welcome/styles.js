@@ -50,19 +50,9 @@ export default function getStyles(theme) {
     },
 
     __button: {
-      textDecoration: 'none',
       width: '60%',
-      padding: theme.GRID.unit * 2,
-      boxSizing: 'border-box',
-      backgroundColor: theme.PALETTE.accent,
-      textAlign: 'center',
-      color: theme.PALETTE.primary,
       marginTop: theme.GRID.unit * 2,
       fontWeight: 500
-    },
-
-    __button_active: {
-      backgroundColor: theme.PALETTE.accentHover
     }
   };
 }

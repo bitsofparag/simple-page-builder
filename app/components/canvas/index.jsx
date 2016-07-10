@@ -29,6 +29,7 @@ let Canvas = ({page, theme, elements}) => {
   const styles = getStyles(theme);
 
   return (<div style={styles.block}>
+    <span style={styles.__tab}>new page</span>
     <PageTitle title={page && page.title} />
     {getHtmlElements(page, elements)}
   </div>);

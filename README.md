@@ -16,6 +16,7 @@
 - 003 Install Redux
 
 - 004 Set up presentational components (views) of the app
+
     a. Header
     b. Element
     c. Canvas
@@ -25,11 +26,11 @@
     
 - 005 Set up Element Actions
     a. addElement action - to add/insert a new element instance to the state
-    <sup>returns `{type: ADD_ELEMENT, elementInstance}`</sup>
+    `return {type: ADD_ELEMENT, elementInstance}`
     
 - 006 Set up Page Actions
     a. addPage action - to add/insert a new page instance to the state
-    <sup>returns `{type: ADD_PAGE, pageInstance}`</sup>
+    `return {type: ADD_PAGE, pageInstance}`
     b. getCurrentPage action - to get the currently active page
     <sup>returns `{type: GET_CURRENT_PAGE, currentPageId}`</sup>
     
