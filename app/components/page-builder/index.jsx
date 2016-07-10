@@ -15,8 +15,8 @@ let PageBuilder = (props, {theme}) => {
   return (<div style={styles.block}>
     <div style={styles.__toolbar}>
       <ToolbarContainer theme={theme} currentPageId={props.currentPage.id} />
-      <ExportButton theme={theme} {...props} />
       <NewPageButton theme={theme} {...props} />
+      <ExportButton theme={theme} {...props} />
     </div>
     <div style={styles.__mainContent}>
       <Canvas

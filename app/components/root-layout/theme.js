@@ -7,13 +7,16 @@ export default {
   SCREEN_CENTER_Y: screen.height / 2,
   PALETTE: {
     primary: 'rgba(64,64,64, 0.9)',
+    primaryDark: 'rgb(64,64,64)',
     primaryHover: 'rgba(64,64,64,0.7)',
     accent: 'rgba(200, 200, 240, 0.9)',
     accentHover: 'rgba(200, 200, 240, 0.7)',
-    border: 'rgb(200, 200, 240)',
-    light: 'rgb(235, 235, 235)'
+    light: 'rgb(235, 235, 235)',
+    gray: 'rgb(150, 150, 150)'
   },
   GRID: {
-    unit: 8
+    unit: 8,
+    tab: 100,
+    tabInactive: 60
   }
 }

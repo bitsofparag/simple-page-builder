@@ -3,15 +3,16 @@ export default function getStyles(theme) {
 
   return {
     block: {
-      width: '100%',
-      marginLeft: unit * 2,
       display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+
+      width: '100%',
       height: unit * 3,
       fontSize: unit * 2,
       textDecoration: 'none',
       textAlign: 'center',
-      boxSizing: 'border-box',
-      justifyContent: 'space-between'
+      boxSizing: 'border-box'
     }
   };
 }

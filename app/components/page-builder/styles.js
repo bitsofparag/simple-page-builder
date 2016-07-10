@@ -10,10 +10,11 @@ export default function getStyles(theme) {
     __toolbar: {
       width: '100%',
       boxSizing: 'border-box',
-      paddingTop: (theme.GRID.unit * 6) + 1,
-      flexDirection: 'row',
+
       display: 'flex',
-      alignItems: 'flex-end',
+      flexWrap: 'wrap',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
       justifyContent: 'flex-start'
     },
 
