@@ -1,7 +1,7 @@
 import objectValues from 'object.values';
-import textarea from './textarea';
-import inputs from './input';
-import paragraph from './paragraph';
+import textarea from './elements/textarea';
+import inputs from './elements/input';
+import paragraph from './elements/paragraph';
 
 const elementDefaults = [
   textarea,
@@ -21,5 +21,10 @@ const element = (type) => {
 export default element;
 
 export const getElementTypes = () => {
-  return elementDefaults.map(element => element.type);
+
+  return elementDefaults.map(element => {
+    let res = {};
+    res[element.type] = element.displayName;
+    return res;
+  });
 };

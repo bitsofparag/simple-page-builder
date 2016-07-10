@@ -1,10 +1,9 @@
 const textarea = {
   type: 'textarea',
   displayName: 'Textarea',
-  staticContent: '<strong>Label here</strong>',
+  title: 'Textarea label here',
   attributes: {
-    placeholder: '',
-    type: 'text'
+    placeholder: 'Enter text here...'
   }
 };
 

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 // components
 import PageTitle from '../page-title';
-import HtmlElement from '../html-element';
+import widgets from '../widgets';
 
 import getStyles from './styles';
 
@@ -10,15 +10,19 @@ let findCurrentPageElement = (id, elements) => {
   return elements.find(element => element.id === id);
 };
 
-let getHtmlElements = (page, elements) => {
+let getHtmlElements = (page, allElements) => {
   if (!page.elements || page.elements.length === 0) {
     return (<h4>No content available</h4>);
   }
 
-  return page.elements.map(elementId => <HtmlElement
-    key={elementId}
-    element={findCurrentPageElement(elementId, elements)}
-  />);
+  return page.elements.map(elementId => {
+    let element = findCurrentPageElement(elementId, allElements);
+
+    return React.createElement(widgets[element.type], {
+      key: elementId,
+      element: element
+    });
+  });
 };
 
 let Canvas = ({page, theme, elements}) => {

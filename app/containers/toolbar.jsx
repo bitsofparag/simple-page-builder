@@ -7,6 +7,18 @@ import {addElement} from '../actions';
 
 import element, {getElementTypes} from '../components/element';
 
+const toolbarButtons = (onClick) => {
+  return getElementTypes().map(typeObj => {
+    let type = Object.keys(typeObj)[0];
+    let displayName = Object.values(typeObj)[0];
+
+    return (<ToolbarButton
+      key={type}
+      displayName={displayName}
+      onClick={onClick(type)}/>);
+  });
+};
+
 class ToolbarContainer extends Component {
   static propTypes = {
     onClick: PropTypes.func.isRequired
@@ -16,12 +28,7 @@ class ToolbarContainer extends Component {
     let {onClick} = this.props;
 
     return (<div>
-      {getElementTypes().map(type =>
-        <ToolbarButton
-          key={type}
-          type={type}
-          onClick={onClick(type)} />
-      )}
+      {toolbarButtons(onClick)}
     </div>);
   }
 }

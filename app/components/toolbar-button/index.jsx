@@ -2,14 +2,14 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const ToolbarButton = ({type, onClick}, {theme}) => {
+const ToolbarButton = ({displayName, onClick}, {theme}) => {
   const styles = getStyles(theme);
 
-  return (<a onClick={onClick} style={styles.block} href='#'>{type}</a>);
+  return (<a onClick={onClick} style={styles.block} href='#'>{displayName}</a>);
 };
 
 ToolbarButton.propTypes = {
-  type: PropTypes.string,
+  displayName: PropTypes.string,
   onClick: PropTypes.func
 };
 
