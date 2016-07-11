@@ -18,7 +18,7 @@ class Button extends Component {
     type: PropTypes.string,
     style: PropTypes.object,
     activeStyle: PropTypes.object,
-    icon: PropTypes.element,
+    icon: PropTypes.func,
     iconProps: PropTypes.object
   };
 
@@ -45,25 +45,13 @@ class Button extends Component {
       buttonStyles = Object.assign({}, buttonStyles, styles.block_active);
     }
 
-    if (icon) {
-      return (<icon {...iconProps} />);
-    }
-
-    if (href) {
-      return (<Link to={href}
-        style={buttonStyles}
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}>
-        {this.props.children}
-      </Link>);
-    }
-
-    return (<a href='#'
+    return (<Link to={href || '#'}
       style={buttonStyles}
       onMouseOver={this.onMouseOver}
       onMouseOut={this.onMouseOut}>
+      <icon />
       {this.props.children}
-    </a>);
+    </Link>);
   }
 }
 
