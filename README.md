@@ -87,8 +87,14 @@
 - 019 Refactor Element class into separate files - new Elements can be easily imported/removed
 
 - 020 Create a paragraph as HTMLElement that renders text on the Canvas
+
+- 021 Add a theme for the widgets
+
+- 022 Export as html or json file
+    a. use file api to export application state to html or json file
+    b. preview button?
  
-- 021 Set up a testing framework with Mocha and Karma
+- 023 Set up a testing framework with Mocha and Karma
  
-- 022 Set up localstorage implementation to persist the state
+- 024 Set up localstorage implementation to persist the state
 

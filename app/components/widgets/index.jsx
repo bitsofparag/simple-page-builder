@@ -5,15 +5,17 @@ const htmlElementReqContext = require.context(
   './atoms', false, /\.\/[^/]+\.jsx?$/
 );
 
-let htmlElements = {};
-export default htmlElements;
+let widgets = {};
+export default widgets;
 
 htmlElementReqContext.keys().forEach(path => {
   let htmlElementName = path.match(htmlElementFileName)[1];
-  htmlElements[htmlElementName] = htmlElementReqContext(path).default;
+  widgets[htmlElementName] = htmlElementReqContext(path).default;
 });
+
+console.log('populated widgets', widgets);
 
 // with Webpack 2
 //System.import('./atoms/' + htmlElementFileName).then(HtmlElement => {
-//  htmlElements[htmlElementFileName] = HtmlElement;
+//  widgets[htmlElementFileName] = HtmlElement;
 //});

@@ -2,8 +2,7 @@ import React, {PropTypes} from 'react';
 
 import getStyles from './styles';
 
-const PageTitle = ({title}, {theme}) => {
-  const styles = getStyles(theme);
+const PageTitle = ({title, theme}) => {
 
   return (<div style={styles.block}>
     {title}
@@ -11,11 +10,8 @@ const PageTitle = ({title}, {theme}) => {
 };
 
 PageTitle.propTypes = {
-  title: PropTypes.string
-};
-
-PageTitle.contextTypes = {
-  theme: PropTypes.object
+  title: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default PageTitle;

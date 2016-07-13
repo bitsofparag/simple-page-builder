@@ -9,7 +9,8 @@ export default function getStyles(theme) {
       position: 'relative',
       boxSizing: 'border-box',
       height: unit * 100,
-      border: '2px solid ' + theme.PALETTE.primary
+      border: '2px solid ' + theme.PALETTE.primary,
+      padding: unit * 2
     },
 
     __placeholder: {

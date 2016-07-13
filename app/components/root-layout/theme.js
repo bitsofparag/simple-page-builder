@@ -9,6 +9,7 @@ export default {
     primary: 'rgba(64,64,64, 0.9)',
     primaryDark: 'rgb(64,64,64)',
     primaryHover: 'rgba(64,64,64,0.7)',
+    primaryGradient: 'linear-gradient(to left, #B993D6 , #8CA6DB)',
     accent: 'rgba(200, 200, 240, 0.9)',
     accentHover: 'rgba(200, 200, 240, 0.7)',
     light: 'rgb(235, 235, 235)',

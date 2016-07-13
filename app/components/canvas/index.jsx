@@ -1,33 +1,13 @@
 import React, {PropTypes} from 'react';
 
 // components
-import PageTitle from '../page-title';
+import Tab from './tab';
+import enhanceWithTheme from './themes';
 import widgets from '../widgets';
 
+// get styling for Canvas
 import getStyles from './styles';
 
-/**
- *
- * @param page
- * @param allElements
- * @returns {*}
- */
-let getHtmlElements = (page, allElements, styles) => {
-  if (!page.elements || page.elements.length === 0) {
-    return (<p style={styles.__placeholder}>
-      Select from toolbar to add content
-    </p>);
-  }
-
-  return page.elements.map(elementId => {
-    let element = allElements.find(element => element.id === elementId);
-
-    return React.createElement(widgets[element.type], {
-      key: elementId,
-      element: element
-    });
-  });
-};
 
 /**
  *
@@ -39,14 +19,23 @@ let getHtmlElements = (page, allElements, styles) => {
  */
 let Canvas = ({page, theme, elements}) => {
   const styles = getStyles(theme);
+  const hasElements = elements && elements.length > 0;
+  let canvasContent = <p style={styles.__placeholder}>
+    Select from toolbar to add content
+  </p>;
+
+  if (hasElements) {
+    canvasContent = page.elements.map(function mapElements(elementId) {
+      let element = elements.find(item => item.id === elementId);
+      let Widget = enhanceWithTheme(widgets[element.type]);
+
+      return <Widget key={elementId} element={element} />;
+    });
+  }
 
   return (<div style={styles.block}>
-    <div style={styles.__tab}>
-      <div style={styles.__tabBox}></div>
-      <div style={styles.__tabTitle}>{page.title}</div>
-    </div>
-    <PageTitle title={page && page.title} />
-    {getHtmlElements(page, elements, styles)}
+    <Tab page={page} styles={styles} />
+    {canvasContent}
   </div>);
 };
 
