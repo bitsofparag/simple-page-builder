@@ -34,7 +34,7 @@ let Canvas = ({page, theme, elements}) => {
   }
 
   return (<div style={styles.block}>
-    <Tab page={page} styles={styles} />
+    <Tab title={page.title} styles={styles} />
     {canvasContent}
   </div>);
 };

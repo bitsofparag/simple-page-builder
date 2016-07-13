@@ -13,8 +13,6 @@ htmlElementReqContext.keys().forEach(path => {
   widgets[htmlElementName] = htmlElementReqContext(path).default;
 });
 
-console.log('populated widgets', widgets);
-
 // with Webpack 2
 //System.import('./atoms/' + htmlElementFileName).then(HtmlElement => {
 //  widgets[htmlElementFileName] = HtmlElement;

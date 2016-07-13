@@ -41,6 +41,7 @@
     "webpack-validator": "^2.2.0"
   },
   "dependencies": {
+    "is-empty-object": "^1.1.1",
     "node-uuid": "^1.4.7",
     "object.values": "^1.0.3",
     "react": "^15.1.0",

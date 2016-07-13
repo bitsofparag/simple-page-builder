@@ -15,8 +15,9 @@ const currentPage = (state = {}, action) => {
       return newState;
 
     case actionTypes.NEW_PAGE:
-    default:
       return Object.assign({}, action.page);
+    default:
+      return state;
   }
 };
 

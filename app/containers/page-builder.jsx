@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
+import isEmptyObject from 'is-empty-object';
 
 import {newPage} from '../actions';
 
@@ -54,7 +55,7 @@ class PageBuilderContainer extends Component {
   render() {
     let {currentPage, elements, pages} = this.props;
 
-    if (!currentPage) {
+    if (isEmptyObject(currentPage)) {
       return <Loader />
     }
 

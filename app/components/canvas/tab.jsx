@@ -1,15 +1,15 @@
 import React, {PropTypes} from 'react';
 
-const Tab = ({page, styles}) => {
+const Tab = ({title, styles}) => {
 
   return (<div style={styles.__tab}>
     <div style={styles.__tabBox}></div>
-    <div style={styles.__tabTitle}>{page.title}</div>
+    <div style={styles.__tabTitle}>{title}</div>
   </div>);
 };
 
 Tab.propTypes = {
-  page: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
   styles: PropTypes.object.isRequired
 };
 
