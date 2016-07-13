@@ -29,7 +29,6 @@ class Paragraph extends React.Component {
     let {element, theme} = this.props;
     let content = element.content || element.staticContent;
     let styles = Object.assign({}, defaultStyles, themedStyles(theme));
-    console.log('in para', styles);
 
     return (<p style={styles.block}>{content}</p>);
 

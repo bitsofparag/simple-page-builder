@@ -11,10 +11,21 @@ const themedStyles = (theme) => {
     block: {
       color: theme.PALETTE.primaryText,
       fontSize: theme.TYPOGRAPHY.header,
-      lineHeight: theme.TYPOGRAPHY.lineHeight,
+      lineHeight: theme.LEADING.headline,
       display: 'flex',
       flexDirection: 'column',
-      width: '100%'
+      width: '100%',
+      marginTop: theme.GRID.unit * 2
+    },
+    __label: {
+      color: theme.PALETTE.primary
+    },
+    __input: {
+      width: '80%',
+      fontSize: theme.TYPOGRAPHY.paragraph,
+      padding: theme.GRID.unit,
+      marginTop: theme.GRID.unit,
+      border: '2px solid ' + theme.PALETTE.divider
     }
   };
 };
@@ -31,8 +42,8 @@ class FileInput extends React.Component {
     let styles = Object.assign({}, defaultStyles, themedStyles(theme));
 
     return (<div style={styles.block}>
-      <label>{element.title}</label>
-      <input {...element.attributes}></input>
+      <label style={styles.__label}>{element.title}</label>
+      <input style={styles.__input} {...element.attributes}></input>
     </div>);
 
   }
