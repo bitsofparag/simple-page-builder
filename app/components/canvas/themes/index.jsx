@@ -5,12 +5,16 @@ import getTheme from './minimal';
 export default function enhanceWithTheme(WrappedComponent) {
 
   return class ThemeManager extends Component {
-    static propTypes = {
-      theme: PropTypes.object.isRequired
-    };
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        theme: getTheme()
+      };
+    }
 
     render() {
-      const theme = getTheme();
+      const theme = this.state.theme;
 
       return <WrappedComponent {...this.props} theme={theme} />;
     }
