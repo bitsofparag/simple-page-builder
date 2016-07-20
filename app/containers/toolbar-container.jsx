@@ -5,7 +5,7 @@ import Toolbar from '../components/toolbar';
 
 import {addElement} from '../actions';
 
-import element, {getElementTypes} from '../components/element-type';
+import element from '../components/element-type';
 
 class ToolbarContainer extends Component {
   static propTypes = {

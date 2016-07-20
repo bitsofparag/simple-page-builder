@@ -90,11 +90,13 @@
 
 - 021 Add a theme for the widgets
 
-- 022 Export as html or json file
+- 022 Save page action
+
+- 023 Export as html or json file
     a. use file api to export application state to html or json file
     b. preview button?
  
-- 023 Set up a testing framework with Mocha and Karma
+- 024 Set up a testing framework with Mocha and Karma
  
-- 024 Set up localstorage implementation to persist the state
+- 025 Set up localstorage implementation to persist the state
 

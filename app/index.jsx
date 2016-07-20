@@ -7,7 +7,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 // get all components to be rendered
 import RootLayout from './components/root-layout';
 import Welcome from './components/welcome';
-import PageBuilderContainer from './containers/page-builder';
+import PageBuilderContainer from './containers/page-builder-container';
 
 // get store (for the entire app)
 import store from './reducers/configureStore';

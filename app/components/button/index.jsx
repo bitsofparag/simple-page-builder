@@ -35,7 +35,7 @@ class Button extends Component {
   }
 
   render() {
-    let {href, type, style, activeStyle, icon, iconProps} = this.props;
+    let {href, type, style, activeStyle, icon, onClick, iconProps} = this.props;
     let theme = this.context.theme;
 
     const styles = getStyles(type, {style, activeStyle, theme});
@@ -45,7 +45,9 @@ class Button extends Component {
       buttonStyles = Object.assign({}, buttonStyles, styles.block_active);
     }
 
-    return (<Link to={href || '#'}
+    return (<Link
+      to={href || '#'}
+      onClick={onClick}
       style={buttonStyles}
       onMouseOver={this.onMouseOver}
       onMouseOut={this.onMouseOut}>

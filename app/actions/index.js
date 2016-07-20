@@ -40,3 +40,10 @@ export const addPage = (page) => {
     })
   };
 };
+
+export const savePage = (payload) => {
+  return {
+    type: actionTypes.SAVE_PAGE,
+    payload
+  };
+};
