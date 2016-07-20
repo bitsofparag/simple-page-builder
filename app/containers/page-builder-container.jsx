@@ -7,11 +7,6 @@ import {newPage, savePage} from '../actions';
 
 import PageBuilder from '../components/page-builder';
 
-const defaultPage = {
-  title: 'New Page Title',
-  elements: []
-};
-
 const Loader = () => {
   return (<div>Loading your page</div>);
 };
@@ -45,16 +40,19 @@ class PageBuilderContainer extends Component {
     let {params, createNewPage} = this.props;
 
     if (params.pageId === 'new') {
-      createNewPage(defaultPage);
+      createNewPage();
     }
+  }
+
+  componentWillUpdate(nextProps) {
+    console.log('component will update', nextProps);
   }
 
   handleSavePage(e) {
     e.preventDefault();
-    console.log(this.props);
-    //this.props.router.replace('/pages/' + (this.props.pages.length + 1));
-    //savePage({});
-    //this.props.router.push('/pages/new');
+    let {params, savePage, currentPage} = this.props;
+    console.log('params before saving', params);
+    savePage(currentPage);
   }
 
   /**
@@ -64,7 +62,7 @@ class PageBuilderContainer extends Component {
    * @returns {XML}
    */
   render() {
-    console.log('PAGEBUILDERCONTAINER', this.props.currentPage);
+    console.log('PAGEBUILDERCONTAINER rendering', this.props.currentPage);
     let {currentPage, elements, pages} = this.props;
 
     if (isEmptyObject(currentPage)) {

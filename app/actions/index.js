@@ -41,9 +41,17 @@ export const addPage = (page) => {
   };
 };
 
-export const savePage = (payload) => {
+export const savePage = (currentPage) => {
+  let payload = Object.assign({}, currentPage);
+
+  if (!currentPage.id) {
+    payload = Object.assign(payload, {
+      id: generatePageId()
+    });
+  }
+
   return {
     type: actionTypes.SAVE_PAGE,
-    payload
+    page: payload
   };
 };
