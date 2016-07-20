@@ -15,6 +15,11 @@ function generateElementId() {
   return uuid();
 }
 
+/**
+ *
+ * @param element
+ * @returns {{type: string, element: *}}
+ */
 export const addElement = (element) => {
   return {
     type: actionTypes.ADD_ELEMENT,
@@ -24,6 +29,12 @@ export const addElement = (element) => {
   };
 };
 
+
+/**
+ *
+ * @param page
+ * @returns {{type: string, page: *}}
+ */
 export const newPage = (page) => {
   return {
     type: actionTypes.NEW_PAGE,
@@ -32,6 +43,11 @@ export const newPage = (page) => {
 };
 
 
+/**
+ *
+ * @param page
+ * @returns {{type: string, page: *}}
+ */
 export const addPage = (page) => {
   return {
     type: actionTypes.ADD_PAGE,
@@ -41,6 +57,12 @@ export const addPage = (page) => {
   };
 };
 
+
+/**
+ *
+ * @param currentPage
+ * @returns {{type: string, page: *}}
+ */
 export const savePage = (currentPage) => {
   let payload = Object.assign({}, currentPage);
 
