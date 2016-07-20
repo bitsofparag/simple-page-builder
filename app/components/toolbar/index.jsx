@@ -1,15 +1,16 @@
 import React, {PropTypes} from 'react';
+import ObjectValues from 'object.values';
 
 import ToolbarButton from '../toolbar-button';
 
-import element, {getElementTypes} from '../element-type';
+import {getElementTypes} from '../element-type';
 
 import getStyles from './styles';
 
 const toolbarButtons = (onClick) => {
   return getElementTypes().map(typeObj => {
     let type = Object.keys(typeObj)[0];
-    let displayName = Object.values(typeObj)[0];
+    let displayName = ObjectValues(typeObj)[0];
 
     return (<ToolbarButton
       key={type}
@@ -29,6 +30,6 @@ const Toolbar = ({onClick}, {theme}) => {
 
 Toolbar.contextTypes = {
   theme: PropTypes.object
-}
+};
 
 export default Toolbar;
