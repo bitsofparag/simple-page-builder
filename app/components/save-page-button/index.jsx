@@ -4,19 +4,27 @@ import Button from '../button';
 
 import getStyles from './styles';
 
-const SavePageButton = ({handleSavePage}, {theme}) => {
+const SavePageButton = ({handleSavePage, currentPage}, {theme}) => {
   const styles = getStyles(theme);
+  let action = '/pages/new';
+  let method = 'POST';
 
-  return (<Button
-    style={styles.block}
-    onClick={handleSavePage}
-    activeStyle={styles.block_active}>
-    Save
-  </Button>);
+  if (currentPage.id) {
+    action = '/pages/' + currentPage.id;
+    method = 'PUT';
+  }
+
+  return (<form action={action} onSubmit={handleSavePage} method={method}>
+    <input
+      value='Save'
+      type='submit'
+      style={styles.block}
+      activeStyle={styles.block_active} />
+  </form>);
 };
 
 SavePageButton.propTypes = {
-  pages: PropTypes.array,
+  currentPage: PropTypes.object,
   handleSavePage: PropTypes.func
 };
 

@@ -25,6 +25,8 @@ export default function getStyles(type, {style, activeStyle, theme}) {
     }
   };
 
+  baseStyles.submit = baseStyles.primary;
+
   type = type || 'primary';
 
   let block = Object.assign({}, baseStyles[type], style);

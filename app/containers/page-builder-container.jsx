@@ -7,6 +7,17 @@ import {newPage, savePage} from '../actions';
 
 import PageBuilder from '../components/page-builder';
 
+
+const defaultPage = {
+  title: 'New Page Title',
+  elements: []
+};
+
+/**
+ * Simple loader component to be displayed when canvas is still loading
+ * @returns {XML}
+ * @constructor
+ */
 const Loader = () => {
   return (<div>Loading your page</div>);
 };
@@ -24,6 +35,7 @@ class PageBuilderContainer extends Component {
     super(props);
 
     this.handleSavePage = this.handleSavePage.bind(this);
+    this.handleNewPage = this.handleNewPage.bind(this);
   }
 
   static propTypes = {
@@ -40,18 +52,18 @@ class PageBuilderContainer extends Component {
     let {params, createNewPage} = this.props;
 
     if (params.pageId === 'new') {
-      createNewPage();
+      createNewPage(defaultPage);
     }
   }
 
-  componentWillUpdate(nextProps) {
-    console.log('component will update', nextProps);
+  handleNewPage(e) {
+    e.preventDefault();
+    console.log('new page clicked');
   }
 
   handleSavePage(e) {
     e.preventDefault();
-    let {params, savePage, currentPage} = this.props;
-    console.log('params before saving', params);
+    let {savePage, currentPage} = this.props;
     savePage(currentPage);
   }
 
@@ -62,7 +74,7 @@ class PageBuilderContainer extends Component {
    * @returns {XML}
    */
   render() {
-    console.log('PAGEBUILDERCONTAINER rendering', this.props.currentPage);
+    console.log('PAGEBUILDERCONTAINER rendering', this.props.currentPage, this.props.params);
     let {currentPage, elements, pages} = this.props;
 
     if (isEmptyObject(currentPage)) {
@@ -74,6 +86,7 @@ class PageBuilderContainer extends Component {
       currentPage={currentPage}
       elements={elements}
       handleSavePage={this.handleSavePage}
+      handleNewPage={this.handleNewPage}
     />);
 
   }

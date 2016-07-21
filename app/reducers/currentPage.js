@@ -16,6 +16,10 @@ const currentPage = (state = {}, action) => {
 
     case actionTypes.NEW_PAGE:
       return Object.assign({}, action.page);
+
+    case actionTypes.SAVE_PAGE:
+      return Object.assign({}, action.page);
+
     default:
       return state;
   }

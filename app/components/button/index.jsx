@@ -46,6 +46,7 @@ class Button extends Component {
     }
 
     return (<Link
+      type={type}
       to={href || '#'}
       onClick={onClick}
       style={buttonStyles}

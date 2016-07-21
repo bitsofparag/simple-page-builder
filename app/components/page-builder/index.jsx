@@ -16,10 +16,8 @@ let PageBuilder = (props, {theme}) => {
   return (<div style={styles.block}>
     <div style={styles.__toolbar}>
       <ToolbarContainer currentPageId={props.currentPage.id} />
-      <NewPageButton
-        pages={props.pages}
-      />
-      <SavePageButton handleSavePage={props.handleSavePage} />
+      <NewPageButton {...props} />
+      <SavePageButton {...props} />
       <ExportButton {...props} />
     </div>
     <div style={styles.__mainContent}>
@@ -34,8 +32,10 @@ let PageBuilder = (props, {theme}) => {
 
 PageBuilder.propTypes = {
   pages: PropTypes.array,
+  currentPage: PropTypes.object,
   elements: PropTypes.array,
-  currentPage: PropTypes.object
+  handleSavePage: PropTypes.func,
+  handleNewPage: PropTypes.func
 };
 
 PageBuilder.contextTypes = {

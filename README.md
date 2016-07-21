@@ -92,12 +92,20 @@
 
 - [x] 022 Save page action
     a. Save button with restful action
+    
+- [ ] 023 Heroku deployment
 
-- [ ] 023 Export as html or json file
+- [ ] 024 Export as html or json file
     a. use file api to export application state to html or json file
     b. preview button?
  
-- [ ] 024 Set up a testing framework with Mocha and Karma
+- [ ] 025 Set up a testing framework with Mocha and Karma
  
-- [ ] 025 Set up localstorage implementation to persist the state
+- [ ] 026 Set up persistence layer
+    a. Mongodb database?
+    b. Localstorage persistence
+    
+- [ ] 027 Add icons or icon framework
+
+
 
