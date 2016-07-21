@@ -11,8 +11,8 @@ const Reporter = require('good');
 const Inert = require('inert');
 
 // config objects
-const SERVER_HOST = 'localhost';
-const SERVER_PORT = 8000;
+const SERVER_HOST = '127.0.0.1';
+const SERVER_PORT = process.env.PORT || 8000;
 const hapiOptions = {
   connections: {
     routes: {

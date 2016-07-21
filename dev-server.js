@@ -2,7 +2,7 @@ var devServer = require('./config/hapi.config');
 
 devServer.start( err => {
   if (err) {
-    console.log('Development server could not be started!');
+    console.log('Development server could not be started!', err);
     return;
   }
 

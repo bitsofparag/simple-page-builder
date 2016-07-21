@@ -15,12 +15,10 @@ const PATHS = {
   htmlTemplate: path.join(__dirname, 'index.ejs')
 };
 
-let TARGET = 'development';
-
+let TARGET = process.env.NODE_ENV || 'development';
 if (/production/.test(process.env.npm_lifecycle_event)) {
   TARGET = 'production';
 }
-
 process.env.BABEL_ENV = TARGET;
 
 const common = {
