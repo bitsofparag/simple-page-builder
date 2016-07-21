@@ -9,7 +9,7 @@
     "development:server:start": "sh ./init-server.sh start",
     "development:server:stop": "sh ./init-server.sh stop",
     "development": "npm-run-all build development:server development:webpack-server",
-    "production": "webpack && sh ./init-server.sh",
+    "production": "npm run build && sh ./init-server.sh",
     "deploy": "webpack && npm run lint",
     "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache || true",
     "test": "echo \"Error: no test specified\" && exit 1"
