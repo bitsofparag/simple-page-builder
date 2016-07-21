@@ -35,7 +35,7 @@ const common = {
   output: {
     path: PATHS.dist,
     filename: '[name].js',
-    publicPath: `/assets/`
+    publicPath: '/assets/'
   },
 
   plugins: [
@@ -60,9 +60,8 @@ const common = {
 // branching out config
 let config;
 switch(TARGET) {
-  case 'deploy':
-    config = merge(common, {
-
+  case 'production':
+    config = merge.smart(common, {
     });
     break;
 

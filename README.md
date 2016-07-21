@@ -93,7 +93,7 @@
 - [x] 022 Save page action
     a. Save button with restful action
     
-- [ ] 023 Heroku deployment
+- [x] 023 Heroku deployment
 
 - [ ] 024 Export as html or json file
     a. use file api to export application state to html or json file

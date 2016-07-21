@@ -62,12 +62,21 @@ server.register([
 
 
 // Hapi routes
-server.route({
-  method: 'GET',
-  path: '/{param*}',
-  handler: {
-    file: 'index.html'
+server.route([
+  {
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+      file: 'index.html'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/assets/app.js',
+    handler: {
+      file: 'app.js'
+    }
   }
-});
+]);
 
 module.exports = server;
