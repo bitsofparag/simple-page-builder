@@ -1,4 +1,4 @@
-##A Simple Page Creator
+##A Simple Page Builder
 
 ###Main tech stack being used
 - React
@@ -104,7 +104,7 @@ I am currently working on making this app available on Heroku. But in the meanti
 - [x] 022 Save page action
     a. Save button with restful action
     
-- [x] 023 Heroku deployment
+- [ ] 023 Heroku deployment
 
 - [ ] 024 Export as html or json file
     a. use file api to export application state to html or json file
