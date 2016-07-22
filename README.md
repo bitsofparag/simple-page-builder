@@ -1,13 +1,22 @@
 ##A Simple Page Creator
 
-####Main tech stack being used
+###Main tech stack being used
 - React
 - Redux
 - Hapi
 - Webpack with Babel support
 - React Router
 
-####Task List
+
+###Installation
+I am currently working on making this app available on Heroku. But in the meantime, you can do the following:
+- clone the repo
+- `npm i` to install all dependencies
+- `npm run development`
+- open `localhost:8000` on your browser
+
+
+#####[Internal] Task list
 
 - [x] 001 Set up scaffold for SPA
 
