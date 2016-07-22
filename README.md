@@ -16,6 +16,8 @@ I am currently working on making this app available on Heroku. But in the meanti
 - open `localhost:8000` on your browser
 
 
+
+---
 #####[Internal] Task list
 
 - [x] 001 Set up scaffold for SPA
